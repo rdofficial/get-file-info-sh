@@ -64,6 +64,17 @@ elif [[ -f $filename ]]; then
 
 		echo -e "[${RED}!${DEFCOL}] Executable : ${RED}No${DEFCOL}"
 	fi
+	
+	# Checking wheter the file is a symlink or not
+	if [[ -L $filename ]]; then
+		# If the user specified file is a symlink, then we display it
+
+		echo -e "[${GREEN}#${DEFCOL}] Is the file a symlink : ${GREEN}Yes${DEFCOL}"
+	else
+		# If the user specified file is not a symlink, then we display it
+
+		echo -e "[${RED}!${DEFCOL}] Is the file a symlink : ${RED}No${DEFCOL}"
+	fi
 else
 	# If the user specified location is neither of a file nor of a directory, then we display the error message on the console screen
 
